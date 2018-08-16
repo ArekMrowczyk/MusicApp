@@ -1,0 +1,34 @@
+<mat-sidenav-container class="container">
+    <mat-sidenav #sidenav class="sidenav mat-elevation-z10"
+      [opened]="!isScreenSmall()"
+      [mode]="isScreenSmall() ? 'over' : 'side'">
+      <mat-toolbar color="primary">
+        My Music App
+      </mat-toolbar>
+      <mat-nav-list>
+        <mat-list-item>
+           <a matLine [routerLink]="['/home']"><mat-icon>home</mat-icon> <span>Home</span></a>
+        </mat-list-item>
+        <mat-list-item>
+            <a matLine [routerLink]="['/mylibrary']"><mat-icon>library_music</mat-icon> <span>My Library</span> </a>
+        </mat-list-item>
+        <mat-list-item>
+            <a matLine [routerLink]="['/playlists']"><mat-icon>list</mat-icon> <span>Playlists</span></a>
+        </mat-list-item>
+        <mat-list-item>
+          <a matLine [routerLink]="['/search']"><mat-icon>search</mat-icon> <span>Search</span></a>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+    <div class="app-content">
+      <mat-toolbar class="app-topbar" color="primary">
+        <span>{{PageTitle}}</span>
+        <button mat-button class="sidenav-toggle" (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+      </mat-toolbar>
+
+      <router-outlet></router-outlet>
+
+      <app-bottom-bar class="mat-elevation-z15"></app-bottom-bar>
+    </div>
+</mat-sidenav-container>
+
